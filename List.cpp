@@ -1,4 +1,4 @@
-#include "List.h"
+#include "Classes.h"
 
 List::List() {
     m_head = nullptr;
@@ -17,20 +17,30 @@ void List::add(int data){
     m_length++;
 }
 
+void List::addNode(Node* node){
+    if(m_head == nullptr){
+        m_head = node;
+    }
+    else{
+        node->setNext(m_head);
+        m_head = node;
+    }
+    m_length++;
+}
+
 void List::deleteItem (int index){
     if(m_length == 0){
         log("Error: empty list");
         return;
     }
-    else if (index > m_length){
-        log("Error: index > length");
+    else if (index >= m_length){
+        log("Error: index >= length");
         return;
     }
     else{
         if(index == 0){
             Node* newHead = m_head->getNext();
             delete m_head;
-            m_head = nullptr;
             m_head = newHead;
         }
         else{
@@ -46,7 +56,6 @@ void List::deleteItem (int index){
             else{
                 Node* newNext = tmp->getNext()->getNext();
                 delete tmp->getNext();
-                tmp->setNext(nullptr);
                 tmp->setNext(newNext);
             }
         }
@@ -59,8 +68,8 @@ Node* List::getNode(int index){
         log("Error: empty list");
         return nullptr;
     }
-    else if (index > m_length){
-        log("Error: index > length");
+    else if (index >= m_length){
+        log("Error: index >= length");
         return nullptr;
     }
     else{
@@ -113,13 +122,27 @@ void List::setHead(Node* head){
 
 int List::getLength(){
     return m_length;
-};
+}
+
+void List::setLength(int length){
+    m_length = length;
+}
 
 void List::printList(){
     if (m_length > 0){
         Node* tmp = m_head;
         while (tmp != nullptr){
             log(tmp->getData());
+            tmp = tmp->getNext();
+        }
+    }
+}
+
+void List::printListAddresses(){
+    if (m_length > 0){
+        Node* tmp = m_head;
+        while (tmp != nullptr){
+            log(tmp);
             tmp = tmp->getNext();
         }
     }
