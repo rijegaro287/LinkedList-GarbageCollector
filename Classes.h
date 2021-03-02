@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <wx/wx.h>
 #define log(message) std::cout<<message<<std::endl;
 
 class Node {
@@ -48,4 +49,20 @@ public:
     void updateRecyclableNodes();
     bool isEmpty();
     List* getRecyclableNodes();
+};
+
+class App: public wxApp{
+public:
+    virtual bool OnInit();
+};
+
+class MainWindow : public wxFrame{
+public:
+    MainWindow(wxWindow *parent,
+               wxWindowID id,
+               const wxString& title,
+               const wxPoint& pos = wxDefaultPosition,
+               const wxSize& size = wxDefaultSize,
+               long style = wxDEFAULT_FRAME_STYLE,
+               const wxString& name = wxASCII_STR(wxFrameNameStr));
 };

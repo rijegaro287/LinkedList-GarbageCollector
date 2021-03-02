@@ -3,4 +3,12 @@ project(Tarea_1_Datos_II)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Tarea_1_Datos_II main.cpp Node.cpp List.cpp Collector.cpp Classes.h)
+set(wxWidgets_ROOT_DIR </home/rijegaro/Descargas/wxWidgets-3.1.4>)
+set(wxWidgets_CONFIGURATION mswu)
+
+find_package(wxWidgets REQUIRED COMPONENTS core)
+include(${wxWidgets_USE_FILE})
+
+add_executable(Tarea_1_Datos_II Node.cpp List.cpp Collector.cpp Classes.h GUI.cpp)
+
+target_link_libraries(${PROJECT_NAME} ${wxWidgets_LIBRARIES})
