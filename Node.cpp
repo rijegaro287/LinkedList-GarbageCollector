@@ -13,7 +13,6 @@ void * Node::operator new(size_t size){
 }
 
 void Node::operator delete (void * ptr){
-    log(ptr);
     Collector::getInstance()->proccessNode(ptr);
 }
 

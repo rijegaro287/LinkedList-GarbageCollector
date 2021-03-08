@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 #include <wx/wx.h>
+#include <sstream>
+#include <string>
 #define log(message) std::cout<<message<<std::endl;
 
 class Node {
@@ -57,7 +59,8 @@ public:
 };
 
 class MainWindow : public wxFrame{
-public:
+private:
+    static MainWindow *m_mainWindowInstance;
     MainWindow(wxWindow *parent,
                wxWindowID id,
                const wxString& title,
@@ -65,4 +68,9 @@ public:
                const wxSize& size = wxDefaultSize,
                long style = wxDEFAULT_FRAME_STYLE,
                const wxString& name = wxASCII_STR(wxFrameNameStr));
+public:
+    static MainWindow* getInstance();
+    void addButtonClicked(wxCommandEvent & e);
+    void deleteButtonClicked(wxCommandEvent & e);
+    void updateLists();
 };

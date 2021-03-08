@@ -15,7 +15,6 @@ Collector* Collector::getInstance(){
 
 void Collector::proccessNode(void * node){
     Node* nodePtr = (Node*) node;
-    /*nodePtr->setData(0);*/
     nodePtr->setNext(nullptr);
     m_recyclableNodes->addNode(nodePtr);
 }
