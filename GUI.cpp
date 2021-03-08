@@ -104,7 +104,7 @@ void MainWindow::addButtonClicked(wxCommandEvent & e) {
 }
 
 void MainWindow::deleteButtonClicked(wxCommandEvent &e) {
-    if(entryAdd->GetValue() != "" && entryAdd->GetValue().IsNumber()) {
+    if(entryDelete->GetValue() != "" && entryDelete->GetValue().IsNumber()) {
         list->deleteItem(wxAtoi(entryDelete->GetValue()));
         updateLists();
     }
