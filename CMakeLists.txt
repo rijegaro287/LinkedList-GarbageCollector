@@ -3,7 +3,7 @@ project(Tarea_1_Datos_II)
 
 set(CMAKE_CXX_STANDARD 20)
 
-set(wxWidgets_ROOT_DIR </home/rijegaro/Descargas/wxWidgets-3.1.4>)
+set(wxWidgets_ROOT_DIR <${CMAKE_CURRENT_SOURCE_DIR}/libs/wxWidgets-3.1.4>)
 set(wxWidgets_CONFIGURATION mswu)
 
 find_package(wxWidgets REQUIRED COMPONENTS core)
