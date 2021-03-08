@@ -1,8 +1,9 @@
 #pragma once
 #include <iostream>
-#include <wx/wx.h>
 #include <sstream>
 #include <string>
+#include <wx/wx.h>
+
 #define log(message) std::cout<<message<<std::endl;
 
 class Node {
