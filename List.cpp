@@ -30,7 +30,7 @@ void List::addNode(Node* node){
 
 void List::deleteItem (int index){
     if(m_length == 0){
-        log("Error: empty list");
+        log("Error: empty m_list");
         return;
     }
     else if (index >= m_length){
@@ -65,7 +65,7 @@ void List::deleteItem (int index){
 
 Node* List::getNode(int index){
     if(m_length == 0){
-        log("Error: empty list");
+        log("Error: empty m_list");
         return nullptr;
     }
     else if (index >= m_length){
@@ -83,32 +83,6 @@ Node* List::getNode(int index){
             }
             return tmp;
         }
-    }
-}
-
-void List::modifyValue(int index, int value){
-    getNode(index)->setData(value);
-}
-
-void List::switchValues(int index1, int index2){
-    if (m_length == 0){
-        log("Error: empy list");
-        return;
-    }
-    else if(index1 > m_length || index2 > m_length){
-        log("Error: index out of range");
-        return;
-    }
-    else if(index1 == index2){
-        log("Error: indexes can't be the same");
-        return;
-    }
-    else{
-        Node item1Copy = *getNode(index1);
-        Node* item1 = getNode(index1);
-        Node* item2 = getNode(index2);
-        item1->setData(item2->getData());
-        item2->setData(item1Copy.getData());
     }
 }
 
